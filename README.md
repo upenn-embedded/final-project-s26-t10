@@ -7,9 +7,9 @@
 
 | Team Member Name | Email Address       |
 |------------------|---------------------|
-| Cindy Liu       | [cinl@seas.upenn.edu]           |
-| Mike Song         | [chengyus@seas.upenn.edu]           |
-| Justin Yu         | [justinyu@seas.upenn.edu]           |
+| Cindy Liu        | [cinl@seas.upenn.edu]           |
+| Mike Song        | [chengyus@seas.upenn.edu]           |
+| Justin Yu        | [justinyu@seas.upenn.edu]           |
 
 **GitHub Repository URL:** https://github.com/upenn-embedded/final-project-s26-t10 
 
@@ -18,9 +18,10 @@
 ## Final Project Proposal
 
 ### 1. Abstract
-Using a
+This project is the design and implementation of a 2-axis camera gimbal system that uses servos to provide active stabalization for a camera. It uses an Inertial Measurement Unit (IMU) to monitor angular rotation as an input. Feedback is processed by an ATMega328PB. The microcontroller will output PWM signals, corrected by a PID control algorithm.
 
 ### 2. Motivation
+Conventional camera gimbals are expensive, usually upwards of $200. Furthermore, they are usually designed specifically for industry grade cameras, leaving much to be desired for amateur videographers. This project gives an affordable option for those looking to try recording videos wth stabalization.
 
 ### 3. System Block Diagram
 
