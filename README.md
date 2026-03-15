@@ -1,23 +1,24 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/-Acvnhrq)
 # Final Project
 
-**Team Number:**
+**Team Number:** 10
 
-**Team Name:**
+**Team Name:** ???
 
 | Team Member Name | Email Address       |
 |------------------|---------------------|
-| [Name 1]         | [Email 1]           |
-| [Name 2]         | [Email 2]           |
-| [Name 3]         | [Email 3]           |
+| Cindy Liu       | [cinl@seas.upenn.edu]           |
+| Mike Song         | [chengyus@seas.upenn.edu]           |
+| Justin Yu         | [justinyu@seas.upenn.edu]           |
 
-**GitHub Repository URL:**
+**GitHub Repository URL:** https://github.com/upenn-embedded/final-project-s26-t10 
 
 **GitHub Pages Website URL:** [for final submission]*
 
 ## Final Project Proposal
 
 ### 1. Abstract
+Using a
 
 ### 2. Motivation
 
