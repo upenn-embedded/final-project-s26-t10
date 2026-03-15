@@ -18,14 +18,16 @@
 ## Final Project Proposal
 
 ### 1. Abstract
-This project is the design and implementation of a 2-axis camera gimbal system that uses servos to provide active stabalization for a camera. It uses an Inertial Measurement Unit (IMU) to monitor angular rotation as an input. Feedback is processed by an ATMega328PB. The microcontroller will output PWM signals, corrected by a PID control algorithm.
+This project is the design and implementation of a 2-axis camera gimbal system that uses servos to provide active stabalization for a camera. It uses an Inertial Measurement Unit (IMU) to monitor angular rotation as an input. Feedback is processed by an ATMega328PB. The microcontroller will output PWM signals, corrected by a PID control algorithm. Finally, the entire system will be powered by USB-C.
 
 ### 2. Motivation
-Conventional camera gimbals are expensive, usually upwards of $200. Furthermore, they are usually designed specifically for industry grade cameras, leaving much to be desired for amateur videographers. This project gives an affordable option for those looking to try recording videos wth stabalization.
+Conventional camera gimbals are expensive, usually upwards of $200. Furthermore, they are usually designed specifically for industry grade cameras, leaving much to be desired for amateur videographers. This project gives an affordable option for those looking to try recording videos wth stabalization. By utilizing the widespread USB-C connector for power, this device can be used in many environments with a variety of power sources.
 
 ### 3. System Block Diagram
+![alt text](<Images/System Block Diagram.drawio (1).png>)
 
 ### 4. Design Sketches
+TODO, Cindy are you able to update?
 
 ### 5. Software Requirements Specification (SRS)
 
@@ -34,31 +36,40 @@ Conventional camera gimbals are expensive, usually upwards of $200. Furthermore,
 (IMU) - Inertial Measurement Device, gives linear acceleration and angular rate data \
 (Angular Rate) - degrees per second, as given by IMU \
 (PID controller) Proportional-Integral-Derivative controller. Uses feedback to hit a target while reducing overshoot, in this case to stabalize the axis after rotation. Uses integral and derivative of error to adjust output.\
-(PWM) - pulse width modulation, produces a square wave output from the microcontroller to serve as an input to the servo\
+(PWM) - pulse width modulation, produces a square wave output from the microcontroller to serve as an input to the servo. 
 
 **5.2 Functionality**
 
 | ID     | Description                                                                                                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SRS-01 | The IMU 2-axis angular rate will be measured with 16-bit depth every 5 milliseconds +/-1 milliseconds|
-| SRS-02 | The PID controller will recieve new inputs and produce PWM outputs for each servo every 5 milliseconds +/-1 milliseconds, based on estimated error with an accumulator variable that sums IMU's angular rate every polling cycle |
-| SRS-03 | The PWM Duty cycle that is output to the servos will be updated every 5 milliseconds +/-1 milliseconds|
-| SRS-04 | The gimbal will read the input of a switch so it will stop stabalizing if the switch is open|
+| SRS-01 | The IMU 2-axis angular rate will be measured with 16-bit depth every 5 milliseconds +/-1 milliseconds. |
+| SRS-02 | The PID controller will recieve new inputs and produce PWM outputs for each servo every 5 milliseconds +/-1 milliseconds, based on estimated error with an accumulator variable that sums IMU's angular rate every polling cycle. |
+| SRS-03 | The PWM Duty cycle that is output to the servos will be updated every 5 milliseconds +/-1 milliseconds.|
+| SRS-04 | The gimbal will read the input of an "enable" button so it will stop stabalizing if the button is pressed. |
+| SRS-05 | The device can be reset to zeroed positions with the press of the "zero" button.  |
+| SRS-06 | The device can be manually zeroed and the position can then be remembered with a long press of the "zero" button. |
+| SRS-07 | The user shall be able to determine the state of the device operation by viewing the status LED. |
+
 
 ### 6. Hardware Requirements Specification (HRS)
 
 **6.1 Definitions, Abbreviations**
 
-Here, you will define any special terms, acronyms, or abbreviations you plan to use for hardware
+MCU - Microcontroller Unit, compact integrated circuit that processes inputs and manages dedicated outputs and tasks.
+Camera Plate - Platform for GoPro/similar sized camera to rest on, controlled on 2 axes by the servos.
+Zeroing - Setting the default position for the camera plate, manually done by aligning the camera plate with the handle.
 
 **6.2 Functionality**
 
 | ID     | Description                                                                                                                        |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| HRS-01 | A distance sensor shall be used for obstacle detection. The sensor shall detect obstacles at a maximum distance of at least 10 cm. |
-| HRS-02 | A noisemaker shall be inside the trap with a strength of at least 55 dB.                                                           |
-| HRS-03 | An electronic motor shall be used to reset the trap remotely and have a torque of 40 Nm in order to reset the trap mechanism.      |
-| HRS-04 | A camera sensor shall be used to capture images of the trap interior. The resolution shall be at least 480p.                       |
+| HRS-01 | USB-C PD module should deliver 12V output from an USB-C input. |
+| HRS-02 | Buck Converter Module should deliver stable 5V output. |
+| HRS-03 | ATmega328PB will function as the microcontroller for the device and also deliver 3.3V. |
+| HRS-04 | 2 IMUs interfaced via I2C will deliver acceleration and position data to the MCU. |
+| HRS-05 | 2 servos will control the pitch and roll of the camera plate.  |
+| HRS-06 | Servos combined with IMU inputs stabilize movement of camera plate in two degrees of freedom. |
+| HRS-07 | Two buttons that allows users to enable the gimbal function and zero the servos. |
 
 ### 7. Bill of Materials (BOM)
 
