@@ -24,7 +24,7 @@ This project is the design and implementation of a 2-axis camera gimbal system t
 Conventional camera gimbals are expensive, usually upwards of $200. Furthermore, they are usually designed specifically for industry grade cameras, leaving much to be desired for amateur videographers. This project gives an affordable option for those looking to try recording videos wth stabalization. By utilizing the widespread USB-C connector for power, this device can be used in many environments with a variety of power sources.
 
 ### 3. System Block Diagram
-![alt text](<Images/System Block Diagram.drawio (1).png>)
+![alt text](<Images/System Block Diagram.drawio.png>)
 
 ### 4. Design Sketches
 TODO, Cindy are you able to update?
