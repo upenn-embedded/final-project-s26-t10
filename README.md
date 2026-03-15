@@ -31,16 +31,19 @@ Conventional camera gimbals are expensive, usually upwards of $200. Furthermore,
 
 **5.1 Definitions, Abbreviations**
 
-Here, you will define any special terms, acronyms, or abbreviations you plan to use for hardware
+(IMU) - Inertial Measurement Device, gives linear acceleration and angular rate data \
+(Angular Rate) - degrees per second, as given by IMU \
+(PID controller) Proportional-Integral-Derivative controller. Uses feedback to hit a target while reducing overshoot, in this case to stabalize the axis after rotation. Uses integral and derivative of error to adjust output.\
+(PWM) - pulse width modulation, produces a square wave output from the microcontroller to serve as an input to the servo\
 
 **5.2 Functionality**
 
 | ID     | Description                                                                                                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SRS-01 | The IMU 3-axis acceleration will be measured with 16-bit depth every 100 milliseconds +/-10 milliseconds                                                                                                                 |
-| SRS-02 | The distance sensor shall operate and report values at least every .5 seconds.                                                                                                                                           |
-| SRS-03 | Upon non-nominal distance detected (i.e., the trap mechanism has changed at least 10 cm from the nominal range), the system shall be able to detect the change and alert the user in a timely manner (within 5 seconds). |
-| SRS-04 | Upon a request from the user, the system shall get an image from the internal camera and upload the image to the user system within 10s.                                                                                 |
+| SRS-01 | The IMU 2-axis angular rate will be measured with 16-bit depth every 5 milliseconds +/-1 milliseconds|
+| SRS-02 | The PID controller will recieve new inputs and produce PWM outputs for each servo every 5 milliseconds +/-1 milliseconds, based on estimated error with an accumulator variable that sums IMU's angular rate every polling cycle |
+| SRS-03 | The PWM Duty cycle that is output to the servos will be updated every 5 milliseconds +/-1 milliseconds|
+| SRS-04 | The gimbal will read the input of a switch so it will stop stabalizing if the switch is open|
 
 ### 6. Hardware Requirements Specification (HRS)
 
