@@ -63,7 +63,7 @@ Zeroing - Setting the default position for the camera plate, manually done by al
 
 | ID     | Description                                                                                                                        |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| HRS-01 | USB-C PD module should deliver 12V output from an USB-C input. |
+| HRS-01 | USB-C PD module should deliver 20V output from an USB-C input. |
 | HRS-02 | Buck Converter Module should deliver stable 5V output. |
 | HRS-03 | ATmega328PB will function as the microcontroller for the device and also deliver 3.3V. |
 | HRS-04 | 2 IMUs interfaced via I2C will deliver acceleration and position data to the MCU. |
