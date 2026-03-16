@@ -27,7 +27,7 @@ Conventional camera gimbals are expensive, usually upwards of $200. Furthermore,
 ![alt text](<Images/System Block Diagram.drawio.png>)
 
 ### 4. Design Sketches
-TODO, Cindy are you able to update?
+![design sketch](./Images/design%20illustration.png)
 
 ### 5. Software Requirements Specification (SRS)
 
@@ -73,18 +73,20 @@ Zeroing - Setting the default position for the camera plate, manually done by al
 
 ### 7. Bill of Materials (BOM)
 
+https://docs.google.com/spreadsheets/d/1yj54xOVig_wChPn7wCOqRE96ZmyI3QeAy7MwsV0c4z8/edit?gid=2071228825#gid=2071228825
 
 ### 8. Final Demo Goals
 
+Demonstrate a 2-axis (pitch and roll) active stabilization. Able to keep camera platform stable despite hand movements. The system shall read angular velocity from an IMU, compute a stable angle estimate, and drive two sevos. Independent PID controllers on each axis shall correct for angular error at 200Hz.
 
 ### 9. Sprint Planning
 
 | Milestone  | Functionality Achieved | Distribution of Work |
 | ---------- | ---------------------- | -------------------- |
-| Sprint #1  |                        |                      |
-| Sprint #2  |                        |                      |
-| MVP Demo   |                        |                      |
-| Final Demo |                        |                      |
+| Sprint #1  | Using an I2C Library, stabilize pitch, create handle and first servo mount | Mike will CAD the handle and servo mount. Justin and Cindy will implement and tune PID for one axis. |
+| Sprint #2  | Move away from using I2C library, include second servo and begin tuning both axes in tandem. Begin FOC bring-up on pitch motor. | Mike will design and integrate the second servo mount and validate mechanical balance on both axes. Cindy will work on integration between the 2 axes and the PID loop. Justin will write the bare-metal SPI communications protocol to replace the I2C library. |
+| MVP Demo   | Both axes stabilizing with servo actuation. Custom SPI driver operational. Complementary filter producing stable angle estimates on both axes. PID visibly rejecting hand-induced disturbances. Mechanical assembly fully integrated. | Mike ensures full mechanical assembly is complete and camera platform is balanced. Cindy integrates both PID loops and validates stable closed-loop behavior on pitch and roll. Justin validates I2C driver and verifies clean IMU data. |
+| Final Demo | Custom I2C driver, complementary filter, PID controllers, Clarke/Park transforms, and SVM all written from scratch in register-level C. System visibly stabilizes camera footage under moderate hand disturbance at 200Hz. | Mike finalizes mechanical assembly, performs cable management, and captures demo footage. Justin and Cindy tunes PID gains on both axes, implements deadband, and optimizes control loop timing.  |
 
 **This is the end of the Project Proposal section. The remaining sections will be filled out based on the milestone schedule.**
 
