@@ -109,7 +109,7 @@ In the past week, we started working on both the mechanical structure of the gim
 Code file: see main.C
 
 CAD:
-![alt text](Images/CAD design sprint1.png)
+![alt text](<Images/CAD design sprint1.png>)
 
 Video of motor stabalization in response to IMU:
 
