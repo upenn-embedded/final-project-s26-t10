@@ -95,9 +95,6 @@ Demonstrate a 3-axis (pitch and roll) active stabilization. Able to keep camera 
 
 **This is the end of the Project Proposal section. The remaining sections will be filled out based on the milestone schedule.**
 
-
-
-
 ## Sprint Review #1
 
 ### Last week's progress
@@ -109,7 +106,7 @@ In the past week, we started working on both the mechanical structure of the gim
 Code file: see main.C
 
 CAD:
-![alt text](<Images/CAD design sprint1.png>)
+![alt text](Images/CAD design sprint1.png)
 
 Video of motor stabalization in response to IMU:
 
@@ -127,9 +124,28 @@ Refine the algorithm for one-axis PID, and add in second IMU and servo. Expect t
 
 ### Last week's progress
 
+In the past week, we have made progress on both the mechanical assembly and the PID control. The parts of the assembly that were CADed last week have been 3d-printed such as the go-pro mount and its bracket, and we are testing to see if the parts fit. New parts were added to the CAD assembly, including the board mount and the handle. Some of our parts have also arrived, including a servo motor of our specified model that we used for testing the PID algorithm.
+
+On the software side, we fine-tuned the kp parameter and dt of our PID control. Now the servo responds at a faster rate and the error between the IMU's rotation and the servo's rotation has been decreased. We then assembled the IMU, servo, and bracket together to create a 1-axis prototype.
+
 ### Current state of project
 
+Code file: see main.C
+
+CAD:
+![alt text](Sprint Review2 CAD.png)
+
+Video of 1-axis prototype (video might not load, please see on github online):
+
+<video controls src="Demo Sprint 2.MOV" title="Title"></video>
+
+From the video, we see that the angle of the servo (where the go-pro camera mount will go) remains around the same angle relative to the ground.
+
 ### Next week's plan
+
+Finalize the CAD, print all the parts, and build a full assembly. This will allow us to know which parts need to be remeasured and fixed for the final print. (Assigned to Cindy and Mike, finish by MVP demo day).
+On the software side, the first goal is to integrate the other two servos so that we have a kp parameter tuned for three servos at once. (Assigned to Justin, finish by MVP demo day).
+If time permits, we can start adding I and D elements into the code to decrease error and oscillation.
 
 ## MVP Demo
 
