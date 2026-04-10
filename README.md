@@ -27,8 +27,8 @@ This project is the design and implementation of a 3-axis camera gimbal system t
 Conventional camera gimbals are expensive, usually upwards of $200. Furthermore, they are usually designed specifically for industry grade cameras, leaving much to be desired for amateur videographers. This project gives an affordable option for those looking to try recording videos wth stabalization. By utilizing the widespread USB-C connector for power, this device can be used in many environments with a variety of power sources.
 
 ### 3. System Block Diagram
+![alt text](<Images/System Block Diagram.drawio.png>)
 
-![alt text](Images/System Block Diagram.drawio.png)
 
 ### 4. Design Sketches
 
@@ -106,7 +106,7 @@ In the past week, we started working on both the mechanical structure of the gim
 Code file: see main.C
 
 CAD:
-![alt text](Images/CAD design sprint1.png)
+![alt text](<Images/CAD design sprint1.png>)
 
 Video of motor stabalization in response to IMU:
 
@@ -133,11 +133,11 @@ On the software side, we fine-tuned the kp parameter and dt of our PID control. 
 Code file: see main.C
 
 CAD:
-![alt text](Sprint Review2 CAD.png)
+![alt text](<Images/Sprint Review2 CAD.png>)
 
 Video of 1-axis prototype (video might not load, please see on github online):
 
-<video controls src="Demo Sprint 2.MOV" title="Title"></video>
+<video controls src="Images/Demo Sprint 2.MOV" title="Title"></video>
 
 From the video, we see that the angle of the servo (where the go-pro camera mount will go) remains around the same angle relative to the ground.
 
