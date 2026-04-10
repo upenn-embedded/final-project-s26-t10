@@ -112,6 +112,8 @@ Video of motor stabalization in response to IMU:
 
 <video controls src="Images/Motor video sprint1.MOV" title="Title"></video>
 
+Link to video: https://drive.google.com/file/d/1zUX_p3jPe_XTrYJxmcY68znGZ1ic0DGx/view?usp=drive_link
+
 Being able to get the motor to smoothly respond to rotation in one axis is a major step and provides a solid foundation for building on top of that. We foresee a lot more challenges in integrating PID into a multi-axis system since the axis and position will affect one another, but our current state is enough to ensure at least minimum functionality.
 
 ### Next week's plan
@@ -135,9 +137,11 @@ Code file: see main.C
 CAD:
 ![alt text](<Images/Sprint Review2 CAD.png>)
 
-Video of 1-axis prototype (video might not load, please see on github online):
+Video of 1-axis prototype:
 
 <video controls src="Images/Demo Sprint 2.MOV" title="Title"></video>
+
+Link to video: https://drive.google.com/file/d/1BJ6jZqnTRZo793Z51MHxtKvuvLm101JA/view?usp=drive_link
 
 From the video, we see that the angle of the servo (where the go-pro camera mount will go) remains around the same angle relative to the ground.
 
