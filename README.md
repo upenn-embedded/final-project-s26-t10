@@ -27,8 +27,8 @@ This project is the design and implementation of a 3-axis camera gimbal system t
 Conventional camera gimbals are expensive, usually upwards of $200. Furthermore, they are usually designed specifically for industry grade cameras, leaving much to be desired for amateur videographers. This project gives an affordable option for those looking to try recording videos wth stabalization. By utilizing the widespread USB-C connector for power, this device can be used in many environments with a variety of power sources.
 
 ### 3. System Block Diagram
-![alt text](<Images/System Block Diagram.drawio.png>)
 
+![alt text](Images/System Block Diagram.drawio.png)
 
 ### 4. Design Sketches
 
@@ -106,7 +106,7 @@ In the past week, we started working on both the mechanical structure of the gim
 Code file: see main.C
 
 CAD:
-![alt text](<Images/CAD design sprint1.png>)
+![alt text](Images/CAD design sprint1.png)
 
 Video of motor stabalization in response to IMU:
 
@@ -135,7 +135,7 @@ On the software side, we fine-tuned the kp parameter and dt of our PID control. 
 Code file: see main.C
 
 CAD:
-![alt text](<Images/Sprint Review2 CAD.png>)
+![alt text](Images/Sprint Review2 CAD.png)
 
 Video of 1-axis prototype:
 
@@ -152,6 +152,76 @@ On the software side, the first goal is to integrate the other two servos so tha
 If time permits, we can start adding I and D elements into the code to decrease error and oscillation.
 
 ## MVP Demo
+
+The plan for the system block diagram has not changed significantly since the project proposal. For our MVP, we have the I2C lines and PWM lines integrated. The MCU is able to communicate with sensors and actuators consistently, taking the data from the IMU and servos and implementing PID control.
+![alt text](<Images/System Block Diagram.drawio.png>)
+
+Our device currently features two axis stabilization, as demonstrated by this video:
+
+<video controls src="Images/MPV_video.MOV" title="Title"></video>
+
+Link: https://drive.google.com/file/d/1pYFkpmA01hFtK_cwW8RbuCtw5umUj9uW/view?usp=sharing
+
+The software implementation can be found in mvp.c on our gitHub. 
+
+**For our project software requirements:**
+
+We met/are close to meeting the following:
+
+SRS-01: The IMU 3-axis angular rate will be measured with 16-bit depth every 100 milliseconds. Currently we are actively using only 2 of the angular rates.
+
+SRS-02: The PID controller will receive new inputs and produce PWM outputs for each servo every 100ms, based on estimated error with an accumulator varaible that sums IMU's angualr rate every polling cycle. This has been achieved for our two servos.
+
+SRS-03: The PWM duty cycle that is outputted to the servos will be updated every 100ms. This also been achieved for our two servos.
+
+SRS-05: The device can be reset to zeroed positions with the press of the "zero" button. The reset feature is currently implemented in software; we still need to add a hardware button and input capture.
+
+We still need to work on the following:
+
+SRS-04: The gimbal will read the input of an "enable" button so it will stop stabailizing if the button is pressed.
+
+SRS-06: The device can be manually zeroed and the position can then be remembered with a long press of the "zero" button.
+
+SRS-07: The user shall be able to determine the state of the device operation by viewing the status LED.
+
+Throughout testing, we collect data on angle, error, and servo ticks using the serial terminal, example below:
+![alt text](<Images/serial monitor .png>)
+
+
+
+**For our project hardware requirements:**
+We have met/are close to meeting the following:
+
+HRS-03: ATmega328PB will function as the microcontroller for the device and also deliver 3.3V.
+
+HRS-04: 2 IMUs interfaced via I2C will deliver acceleration and position data to the MCU.
+
+HRS-05: 3 servos will control the pitch, roll, and yaw of the camera plate.
+
+HRS-07: Servos combined with IMU inputs stabilize movement of camera plate in three degrees of freedom.
+
+We still need to work on the following power-related hardware goals. Since the PD board has not arrived yet, we are powering the MVP through a power supply instead of a portable usb PD + buck converter.
+
+HRS-01: USB-C PD module should deliver 20V output from an USB-C input.
+
+HRS-02: Buck Converter Module should deliver stable 5V output.
+
+We still need to work on the remaining UI related hardware goals:
+
+HRS-06: Two buttons that allows users to enable the gimbal function and zero the servos.
+
+HRS-08: Servos combined with the IMU inputs can "lock" the camera onto a specific location/direction.
+
+Our plan moving forward before demo is:
+
+1. Improve tuning of the first two servos and add the second IMU.
+2. Mechanically assemble the base plates and handles
+3. Add in the third servo and tune PID
+4. Add in buttons for user reset and enable
+5. Fix and clean up the wiring.
+6. If time permits, implement the power module.
+
+The riskiest part remaining of our project is being able to achieve stabilization on all three axes with minimal jittering. Currently, we see a lot of jittering even with just two axes, and this poses the risk of damaging the mechanical assembly (we've had screws come lose from the jittering before). The risk is that after adding in the third axes, uncontrolled oscillations coming from all three servos would cause the entire device to not only be unstable, but also amplifier the error in our rotations. We plan to de-risk this by strengthening the mechanical assembly, re-tune the first two axes, and improve accuracy by adding in a second IMU.
 
 ## Final Report
 
