@@ -162,7 +162,7 @@ Our device currently features two axis stabilization, as demonstrated by this vi
 
 Link: https://drive.google.com/file/d/1pYFkpmA01hFtK_cwW8RbuCtw5umUj9uW/view?usp=sharing
 
-The software implementation can be found in mvp.c on our gitHub. 
+The software implementation can be found in mvp.c on our gitHub. The software maintains a consistent sampling period (dt), in which it polls the IMU readings from. It then multiplies the rotation rate by dt to calculate the new angle. This angle is then used to calculate the error term (using KP paramter), the integral, and the derivative terms. Then, a PWM is sent to both servos to move the arms. Beyond the control algorithm, the rest of our software includes UART and I2C libraries, as well as gyro calibration and other setup functions. 
 
 **For our project software requirements:**
 
@@ -186,8 +186,6 @@ SRS-07: The user shall be able to determine the state of the device operation by
 
 Throughout testing, we collect data on angle, error, and servo ticks using the serial terminal, example below:
 ![alt text](<Images/serial monitor .png>)
-
-
 
 **For our project hardware requirements:**
 We have met/are close to meeting the following:
@@ -220,6 +218,8 @@ Our plan moving forward before demo is:
 4. Add in buttons for user reset and enable
 5. Fix and clean up the wiring.
 6. If time permits, implement the power module.
+
+Thus, the remaining portions that will make our project complete include assembling the mechanical handle (which we already have the CAD for), programming the 3rd servo, implementing the buttons, and wiring the power distribution. 
 
 The riskiest part remaining of our project is being able to achieve stabilization on all three axes with minimal jittering. Currently, we see a lot of jittering even with just two axes, and this poses the risk of damaging the mechanical assembly (we've had screws come lose from the jittering before). The risk is that after adding in the third axes, uncontrolled oscillations coming from all three servos would cause the entire device to not only be unstable, but also amplifier the error in our rotations. We plan to de-risk this by strengthening the mechanical assembly, re-tune the first two axes, and improve accuracy by adding in a second IMU.
 
