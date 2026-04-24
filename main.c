@@ -52,8 +52,8 @@
 
 /* ── Controller gains ──────────────────────────────────────── */
 #define KP              1.0f
-#define KI              0.0f
-#define KD              0.0f
+#define KI              0.1f
+#define KD              0.01f
 #define I_MAX           500.0f
 
 #define AXIS_SIGN_Z     (-1)
@@ -61,7 +61,7 @@
 #define AXIS_SIGN_Y     (-1)
 
 /* ── Debug / bring-up switches ─────────────────────────────── */
-#define FF_ONLY_X       1
+#define FF_ONLY_X       0
 #define FF_ONLY_Z       1
 #define FF_ONLY_Y       1
 
@@ -293,7 +293,7 @@ int main(void)
     PORTD |= (1 << PORTC1); 
     init_sequence();
     
-    float integ_z = 0.0f;
+    float integ_z = 0.0;
     float integ_x = 0.0f;
     float integ_y = 0.0f;
 
