@@ -273,7 +273,7 @@ Overall, based on our quantified system performance, we met the majority of our 
 | HRS-01 | USB-C PD module should deliver 20V output from an USB-C input. | Change of plan due to stock of USB-C PD module ordered. Barrel jack instead delivers 12V to the buck converter.
 | HRS-02 | Buck Converter Module should deliver stable 5V output. | Confirmed, buck converter outputs 5V, multimeter screenshot in validation folder (Validation/Buck_5V_Output).
  | HRS-03 | ATmega328PB will function as the microcontroller for the device and also deliver 3.3V.  | Confirmed, ATmega328PB used for final product and powers the IMUs. 
-| HRS-04 | 2 IMUs interfaced via I2C will deliver acceleration and position data to the MCU. | Confirmed, screenshot of IMU outputs included in validation folder (). 
+| HRS-04 | 2 IMUs interfaced via I2C will deliver acceleration and position data to the MCU. | Confirmed, screenshot of IMU outputs included in validation folder (Validation/Terminal_Readings AXYZ and BXYZ readings). 
 | HRS-05 | 3 servos will control the pitch, roll, and yaw of the camera plate.  | Confirmed, shown in final demo video where all 3 axis are able to move. 
 | HRS-06 | Two buttons that allows users to enable the gimbal function and zero the servos.  | Determined that functionality to enable the gimbal was uncessary, confirm that servos can zero with button as shown in final demo video.
 | HRS-07 | Servos combined with IMU inputs stabilize movement of camera plate in three degrees of freedom. | Confirmed, there is no overshooting or excessive oscillations when moving them gimbal in three axis.  
@@ -288,3 +288,4 @@ In terms of mechanical assembly, we learned how to incorporate different compone
 We would have better timed the testing of mechanical assemblies if we could do anything differently, since this would have given us more time to plan for the wiring and where the electronics would be mounted. Some unexpected challenges came from the controls, where we did not have too much experience and thus did not know what to expected. However, we were able to consult online resources and work towards different fixes and creating a working product. As a next step for the project, we would properly incorporate PID for all 3 axes working together and also add more accessability features. 
 
 ## References
+No additional libraries used. Public designs for 3D printed gimbals and platforms were references as inspiration and diverged from for our designs. 
