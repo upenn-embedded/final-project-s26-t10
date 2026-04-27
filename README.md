@@ -1,5 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/-Acvnhrq)
-
 # Final Project
 
 **Team Number:** 10
@@ -14,7 +12,7 @@
 
 **GitHub Repository URL:** https://github.com/upenn-embedded/final-project-s26-t10
 
-**GitHub Pages Website URL:** [for final submission]*
+**GitHub Pages Website URL:** https://upenn-embedded.github.io/final-project-s26-t10/
 
 ## Final Project Proposal
 
@@ -28,7 +26,7 @@ Conventional camera gimbals are expensive, usually upwards of $200. Furthermore,
 
 ### 3. System Block Diagram
 
-![alt text](Images/System Block Diagram.drawio.png)
+![alt text](<Images/System Block Diagram.drawio.png>)
 
 ### 4. Design Sketches
 
@@ -106,7 +104,7 @@ In the past week, we started working on both the mechanical structure of the gim
 Code file: see main.C
 
 CAD:
-![alt text](Images/CAD design sprint1.png)
+![alt text](<Images/CAD design sprint1.png>)
 
 Video of motor stabalization in response to IMU:
 
@@ -135,7 +133,7 @@ On the software side, we fine-tuned the kp parameter and dt of our PID control. 
 Code file: see main.C
 
 CAD:
-![alt text](Images/Sprint Review2 CAD.png)
+![alt text](<Images/Sprint Review2 CAD.png>)
 
 Video of 1-axis prototype:
 
@@ -225,28 +223,68 @@ The riskiest part remaining of our project is being able to achieve stabilizatio
 
 ## Final Report
 
-Don't forget to make the GitHub pages public website!
-If you’ve never made a GitHub pages website before, you can follow this webpage (though, substitute your final project repository for the GitHub username one in the quickstart guide):  [https://docs.github.com/en/pages/quickstart](https://docs.github.com/en/pages/quickstart)
-
 ### 1. Video
+<video controls src="Validation/Final_Demo.mp4" title="Title"></video>
+Drive link: https://drive.google.com/file/d/10acfHOuCoLdp05zlck74QHSjerl7qYwV/view?usp=sharing
 
 ### 2. Images
+#### Top View
+![alt text](Images/Demo/Top_View.jpg)
+
+#### Side View
+![alt text](Images/Demo/Side_View.jpg)
+
+#### Side View 2
+![alt text](Images/Demo/Side_View_2.jpg)
+
+#### Side View Closeup
+![alt text](Images/Demo/Side_View_Closeup.jpg)
+
+#### Solidworks Assembly
+![alt text](Images/Demo/Final_Assembly.png)
+
+#### Website 400x400 Picture
+![alt text](Images/Demo/Main.png)
 
 ### 3. Results
 
 #### 3.1 Software Requirements Specification (SRS) Results
 
+Overall, based on our quantified system performance, the majority of our software requirements were met. For some of the requirements associated with the refresh rate of the system, we were able to improve upon it and achieve more precise control. Otherwise, features that were deemed not necessary to critical function were not included such as a button to enable the entire machine. 
+
 | ID     | Description                                                                                               | Validation Outcome                                                                          |
 | ------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| SRS-01 | The IMU 3-axis acceleration will be measured with 16-bit depth every 100 milliseconds +/-10 milliseconds. | Confirmed, logged output from the MCU is saved to "validation" folder in GitHub repository. |
+| SRS-01 | The IMU 3-axis acceleration will be measured with 16-bit depth every 100 milliseconds +/-10 milliseconds. | Confirmed, logged output from the MCU is saved to "validation" folder in GitHub repository.
+| SRS-02 | The PID controller will recieve new inputs and produce PWM outputs for each servo every 100 milliseconds $\pm$10 milliseconds, based on estimated error with an accumulator variable that sums IMU's angular rate every polling cycle. | PID implemented but constants not optimized to work with all 3 axis.  
+| SRS-03 | The PWM Duty cycle that is output to the servos will be updated every 100 milliseconds $\pm$10 milliseconds.                                                                                                                           | Confirmed, PWM commands are sent to the servo every 5 ms, exceeding the requirements. 
+| SRS-04 | The gimbal will read the input of an "enable" button so it will stop stabalizing if the button is pressed.                                                                                                                             | Not implemented. 
+| SRS-05 | The device can be reset to zeroed positions with the press of the "zero" button.                                                                                                                                                       | Confirmed, validated in final demo video. 
+| SRS-06 | The device can be manually zeroed and the position can then be remembered with a long press of the "zero" button.                                                                                                                      | Confirmed, validated in final demo video, resetting in an alternate position sets the zero to that gyroscope position. 
+| SRS-07 | The user shall be able to determine the state of the device operation by viewing the status LED.                                                                                                                                       | Confirmed, green light blink indicates that calibration is complete, and the gimbal is ready. 
+
+
 
 #### 3.2 Hardware Requirements Specification (HRS) Results
 
+Overall, based on our quantified system performance, we met the majority of our hardware goals. Due to circumstances with part availability (USB-C PD module out of stock and could not be delivered), we had to adapt and implement different fixes. For instance, instead of a USB-C input, a barrel jack input was used to emulate a similar setup. Otherwise, our primary goals were achieved and the gimbal performed its core functionality. 
+
 | ID     | Description                                                                                                                        | Validation Outcome                                                                                                      |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| HRS-01 | A distance sensor shall be used for obstacle detection. The sensor shall detect obstacles at a maximum distance of at least 10 cm. | Confirmed, sensed obstacles up to 15cm. Video in "validation" folder, shows tape measure and logged output to terminal. |
-|        |                                                                                                                                    |                                                                                                                         |
+| HRS-01 | USB-C PD module should deliver 20V output from an USB-C input. | Change of plan due to stock of USB-C PD module ordered. Barrel jack instead delivers 12V to the buck converter.
+| HRS-02 | Buck Converter Module should deliver stable 5V output. | Confirmed, buck converter outputs 5V, multimeter screenshot in validation folder (Validation/Buck_5V_Output).
+ | HRS-03 | ATmega328PB will function as the microcontroller for the device and also deliver 3.3V.  | Confirmed, ATmega328PB used for final product and powers the IMUs. 
+| HRS-04 | 2 IMUs interfaced via I2C will deliver acceleration and position data to the MCU. | Confirmed, screenshot of IMU outputs included in validation folder (). 
+| HRS-05 | 3 servos will control the pitch, roll, and yaw of the camera plate.  | Confirmed, shown in final demo video where all 3 axis are able to move. 
+| HRS-06 | Two buttons that allows users to enable the gimbal function and zero the servos.  | Determined that functionality to enable the gimbal was uncessary, confirm that servos can zero with button as shown in final demo video.
+| HRS-07 | Servos combined with IMU inputs stabilize movement of camera plate in three degrees of freedom. | Confirmed, there is no overshooting or excessive oscillations when moving them gimbal in three axis.  
+| HRS-08 | Servos combined with the IMU inputs can "lock" the camera onto a specific location/direction. | Confirmed, gimbal is able to keep pointing towards "zeroed" direction when moved in three axis. 
 
 ### 4. Conclusion
+
+Overall, this project required the integration across many different areas including embedded systems, electrical systems, mechanical assembly, and controls. We learned how to work through an integrated project such as this from end-to-end and also how to walk through the different issues that arise from each stage. The general progression of the project went well as we were able to organize and achieve stages of functionality from each sprint review and week to week. We are proud that we were able to deliver a final project that worked and also solve many of the control challenges that came up as we tried adding more degrees of freedom. 
+
+In terms of mechanical assembly, we learned how to incorporate different components such as servos more complicated 3D printed assemblies. In addition, we learned to work with wiring and ensuring to leave adequate room for wiring and accessability. For electrical, we learned to adapt to situations such as testing a barrel jack instead of the usb-c module, and integrating that with the system. Finally, we further refined our embedded knowledge in controlling different servos by PWM with the ATmega MCU. The controls also required different strategies such as calculating the error for our two IMUs using trig and also using feedforward to better optimize our control loop. 
+
+We would have better timed the testing of mechanical assemblies if we could do anything differently, since this would have given us more time to plan for the wiring and where the electronics would be mounted. Some unexpected challenges came from the controls, where we did not have too much experience and thus did not know what to expected. However, we were able to consult online resources and work towards different fixes and creating a working product. As a next step for the project, we would properly incorporate PID for all 3 axes working together and also add more accessability features. 
 
 ## References
