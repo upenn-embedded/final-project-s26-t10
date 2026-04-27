@@ -26,11 +26,11 @@ Conventional camera gimbals are expensive, usually upwards of $200. Furthermore,
 
 ### 3. System Block Diagram
 
-![alt text](<Images/System Block Diagram.drawio.png>)
+<img src="Images/System Block Diagram.drawio.png" width="600"/>
 
 ### 4. Design Sketches
 
-![design sketch](./Images/design%20illustration.png)
+<img src="./Images/design%20illustration.png" width="600"/>
 
 ### 5. Software Requirements Specification (SRS)
 
@@ -104,11 +104,11 @@ In the past week, we started working on both the mechanical structure of the gim
 Code file: see main.C
 
 CAD:
-![alt text](<Images/CAD design sprint1.png>)
+<img src="Images/CAD design sprint1.png" width="600"/>
 
 Video of motor stabalization in response to IMU:
 
-<video controls src="Images/Motor video sprint1.MOV" title="Title"></video>
+<video controls src="Images/Motor video sprint1.MOV" title="Title" width="600"></video>
 
 Link to video: https://drive.google.com/file/d/1zUX_p3jPe_XTrYJxmcY68znGZ1ic0DGx/view?usp=drive_link
 
@@ -133,11 +133,11 @@ On the software side, we fine-tuned the kp parameter and dt of our PID control. 
 Code file: see main.C
 
 CAD:
-![alt text](<Images/Sprint Review2 CAD.png>)
+<img src="Images/Sprint Review2 CAD.png" width="600"/>
 
 Video of 1-axis prototype:
 
-<video controls src="Images/Demo Sprint 2.MOV" title="Title"></video>
+<video controls src="Images/Demo Sprint 2.MOV" title="Title" width="600"></video>
 
 Link to video: https://drive.google.com/file/d/1BJ6jZqnTRZo793Z51MHxtKvuvLm101JA/view?usp=drive_link
 
@@ -152,11 +152,11 @@ If time permits, we can start adding I and D elements into the code to decrease 
 ## MVP Demo
 
 The plan for the system block diagram has not changed significantly since the project proposal. For our MVP, we have the I2C lines and PWM lines integrated. The MCU is able to communicate with sensors and actuators consistently, taking the data from the IMU and servos and implementing PID control.
-![alt text](<Images/System Block Diagram.drawio.png>)
+<img src="Images/System Block Diagram.drawio.png" width="600"/>
 
 Our device currently features two axis stabilization, as demonstrated by this video:
 
-<video controls src="Images/MPV_video.MOV" title="Title"></video>
+<video controls src="Images/MPV_video.MOV" title="Title" width="600"></video>
 
 Link: https://drive.google.com/file/d/1pYFkpmA01hFtK_cwW8RbuCtw5umUj9uW/view?usp=sharing
 
@@ -183,7 +183,7 @@ SRS-06: The device can be manually zeroed and the position can then be remembere
 SRS-07: The user shall be able to determine the state of the device operation by viewing the status LED.
 
 Throughout testing, we collect data on angle, error, and servo ticks using the serial terminal, example below:
-![alt text](<Images/serial monitor .png>)
+<img src="Images/serial monitor .png" width="600"/>
 
 **For our project hardware requirements:**
 We have met/are close to meeting the following:
@@ -224,27 +224,27 @@ The riskiest part remaining of our project is being able to achieve stabilizatio
 ## Final Report
 
 ### 1. Video
-<video controls src="Validation/Final_Demo.mp4" title="Title"></video>
+<video controls src="Validation/Final_Demo.mp4" title="Demo" width="600"></video>
 Drive link: https://drive.google.com/file/d/10acfHOuCoLdp05zlck74QHSjerl7qYwV/view?usp=sharing
 
 ### 2. Images
 #### Top View
-![alt text](Images/Demo/Top_View.jpg)
+<img src="Images/Demo/Top_View.jpg" width="600"/>
 
 #### Side View
-![alt text](Images/Demo/Side_View.jpg)
+<img src="Images/Demo/Side_View.jpg" width="600"/>
 
 #### Side View 2
-![alt text](Images/Demo/Side_View_2.jpg)
+<img src="Images/Demo/Side_View_2.jpg" width="600"/>
 
 #### Side View Closeup
-![alt text](Images/Demo/Side_View_Closeup.jpg)
+<img src="Images/Demo/Side_View_Closeup.jpg" width="600"/>
 
 #### Solidworks Assembly
-![alt text](Images/Demo/Final_Assembly.png)
+<img src="Images/Demo/Final_Assembly.png" width="600"/>
 
 #### Website 400x400 Picture
-![alt text](Images/Demo/Main.png)
+<img src="Images/Demo/Main.png" width="400"/>
 
 ### 3. Results
 
